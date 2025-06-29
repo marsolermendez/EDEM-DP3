@@ -96,7 +96,7 @@ resource "google_datastream_stream" "replication" {
           schema = "public"
 
           postgresql_tables {
-            table = "test_datastream"
+            table = "test_datastream" # Se llama así la tabla?
           }
 
           postgresql_tables {

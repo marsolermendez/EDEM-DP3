@@ -1,3 +1,8 @@
+# Todo esto debería ser un módulo de Terraform reutilizable, y ser invocado desde un main.tf como hemos hecho siempre
+
+
+
+
 # main.tf completo para desplegar app Flask en Cloud Run (GCP) con Terraform
 
 provider "google" {
@@ -6,7 +11,7 @@ provider "google" {
 }
 
 # ============================
-# 1. Activar APIs necesarias
+# 1. Activar APIs necesarias # Esta parte nunca la hemos hecho así, ya que no debería ser un root el que ejecute y por eso se hace a mano
 # ============================
 resource "google_project_service" "run" {
   service             = "run.googleapis.com"
