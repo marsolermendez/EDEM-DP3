@@ -31,6 +31,6 @@ def lambda_handler(event, context):
 
     except Exception as e:
         return {
-            "statusCode": 400,
+            "statusCode": 400, # Este error code es incorrecto, debería ser 500 para errores internos
             "body": json.dumps({"error": str(e)})
         }

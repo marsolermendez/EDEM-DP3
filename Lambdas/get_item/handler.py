@@ -23,7 +23,10 @@ def lambda_handler(event, context):
             cur.execute("SELECT stock FROM productos WHERE id = %s", (producto_id,))
             row = cur.fetchone()
             if not row:
-                raise ValueError("Producto no encontrado")
+                return {
+                    "statusCode": 404,
+                    "body": json.dumps({"error": "Producto no encontrado"})
+                }
 
             stock_actual = row[0]
             if stock_actual <= 0:
@@ -39,6 +42,6 @@ def lambda_handler(event, context):
 
     except Exception as e:
         return {
-            "statusCode": 400,
+            "statusCode": 400, # Este error code es incorrecto, debería ser 500 
             "body": json.dumps({"error": str(e)})
         }

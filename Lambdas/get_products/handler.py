@@ -29,7 +29,7 @@ def handler(event, context):
     except Exception as e:
         print(f"❌ Error en get_products: {e}")
         return {"statusCode": 500, "body": json.dumps({"error": str(e)})}
-    finally:
+    finally: # Esta parte debería estar en todas las lambdas
         if conn:
             conn.close()
             print("🔌 Conexión a la BBDD cerrada.")
